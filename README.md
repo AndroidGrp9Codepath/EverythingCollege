@@ -1,5 +1,5 @@
 
-# Milestone 1 - EVERYTHINGCOLLOGE
+# Milestone 1 - MINDFULMIND
 
 ## Table of Contents
 
