@@ -20,8 +20,8 @@ This application will help student have a easy access to information such as int
 - **Mobile:**
 - **Story:**
 - **Market:**
-- **Habit:**
-- **Scope:**
+- **Habit:** students will constantly check the application to check scholarships and college-related news. Juniors and seniors search for job opportunities daily.
+- **Scope:** V1 allow users to gain insides on latest available scholarships and college-related finacial news, the user would be able to see details and requirment for those scholarships and save them for later, if save users will recieved a notofication if the due date is aproaching.
 
 ## Product Spec
 
