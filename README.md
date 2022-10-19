@@ -16,10 +16,10 @@ This application will help student have a easy access to information such as int
 ### App Evaluation
 
 [Evaluation of your app across the following attributes]
-- **Category:**
-- **Mobile:**
-- **Story:**
-- **Market:**
+- **Category:** Social Networking, News
+- **Mobile:** Everything college is essential for students to take advantage of scholarships and financial aid. They also get quick access to post-college careers.
+- **Story:** connects the students with their potential careers. Allows them to build connnections, and gain access to latest news on internships and scholarships
+- **Market:** Any college and potential college students can use this app. Universities and teachers can also use this to inform their student about opportunities
 - **Habit:** students will constantly check the application to check scholarships and college-related news. Juniors and seniors search for job opportunities daily.
 - **Scope:** V1 allow users to gain insides on latest available scholarships and college-related finacial news, the user would be able to see details and requirment for those scholarships and save them for later, if save users will recieved a notofication if the due date is aproaching.
 
