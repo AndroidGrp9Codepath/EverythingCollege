@@ -1,5 +1,4 @@
-
-# Milestone 1 - MINDFULMIND
+# Milestone 1 - MindfulMind
 
 ## Table of Contents
 
@@ -11,63 +10,119 @@
 
 ### Description
 
-This application will help student have a easy access to information such as interships available scholarships, school news, Users can search jobs/internship, scholarships and college-related news.They can also post career-related news to their feed.  It also allows them to save these for later reference.
+MindfulMind will allow users to have track and develop their mental health. They will be able to view mental health resources, choose among relaxing spotify playlist, read quotes, and input daily journal entries. 
+
+
 
 ### App Evaluation
 
 [Evaluation of your app across the following attributes]
-- **Category:** Social Networking, News
-- **Mobile:** Everything college is essential for students to take advantage of scholarships and financial aid. They also get quick access to post-college careers.
-- **Story:** connects the students with their potential careers. Allows them to build connnections, and gain access to latest news on internships and scholarships
-- **Market:** Any college and potential college students can use this app. Universities and teachers can also use this to inform their student about opportunities
-- **Habit:** students will constantly check the application to check scholarships and college-related news. Juniors and seniors search for job opportunities daily.
-- **Scope:** V1 allow users to gain insides on latest available scholarships and college-related finacial news, the user would be able to see details and requirment for those scholarships and save them for later, if save users will recieved a notofication if the due date is aproaching.
+- **Category:** Wellness
+- **Mobile:** Mindful mind is essential for people to track their mental health.They will get motivation from daily quotes, journaling, and access to mental health resources if the need arises.
+
+- **Story:** Connects users with build a habit of daily motivation. Allows them to reflect on past days, develop a list of mantras, and a network of mental health organizations.
+
+
+- **Market:** Young adults and adults can use this app to track and improve their mental health. 
+
+
+- **Habit:** Mental health is a basic necessity. Users are likely to check the app daily to view quotes, write about their day, and listen to music that calms them down or inspires them daily. 
+
+
+- **Scope:** V1 allow users to login to their account, view quotes, view a list of spotify playlists, add entries to their journal, and view a list of mental health resources. They will also be able to view and edit their profiles.  V2 allows the will be able to like and save their favorite quotes for later, and view more information about a specific quote, song or mental health resource. 
+
 
 ## Product Spec
 
 ### 1. User Features (Required and Optional)
 
-**Required Features**
+## Required Features
 
-* [fill in your required user features here]
-* ...
+- [ ] **Use four Fragments**
+
+- [ ] **Make requests to the spotify API, quotes API, and mental health resources API**
+
+- [ ] **User can see playlists, quotes, notes, and mental health resources on a recyclerview**
+
+- [ ] **User can input new notes using textviews**
+
+- [ ] **Use one of the Navigation UI Views (BottomNavigation, Drawer Layout, Top Bar) to navigate between fragments**
+
+- [ ] **Users' notes are stored in a database**
+
+- [ ] **Users can stay logged in after reopening app**
 
 **Stretch Features**
 
-* [fill in your optional user features here]
-* ...
+- [ ] **Users can login using facebook or google**
+- [ ] **Users can save their favorite songs and quotes to a database**
+- [ ] **Users can customize the recyclerview layout**
+- [ ] **Users can view details about music, quotes and mental health resources**
 
 ### 2. Screen Archetypes
 
-- [list first screen here]
-  - [list associated required story here]
-  - ...
-- [list second screen here]
-  - [list associated required story here]
-  - ...
+- **Login Screen**
+  - User can input username and password to login to their account or be prompted to  signs up.
+  
+- **Stream screen** 
+    
+  - User can view a list of quotes
+  - User can view a list of songs
+  - User can view a list of previous journal entries
+  - User can view a list of mental health resources
+
+- **Profile Screen**
+  - User can see their bio
+  - User can monitor their mental health progress
+  - display view the number of times they asked for help
+
+
+
+- **Details Screen**
+  - User can read the details of a selected song
+  - User can view the  orgiin of a selected quote 
+  - User can view their previous notes in full 
+  - User can see more information about a mental health rresource
+
+- **Creation Screen**
+    - User can add a new journal entry
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
+- Quotes
+- Calm music 
+- Journal 
+- Seek help
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
 
 **Flow Navigation** (Screen to Screen)
 
-- [list first screen here]
-  - [list screen navigation here]
-  - ...
-- [list second screen here]
-  - [list screen navigation here]
-  - ...
+- **Login Screen**
+    => Quotes fragment for displaying quotes
+    
+    
+- **Stream screen** 
+  => To journal entry screen
+  => Detail screen for a quote
+  => Detail screen for a song
+  => Detail screen for a mental health resource
+    
+- **Creation Screen**
+    => Back to list of notes
+    
+    
+- **Details Screen**
+  => Back to quotes fragment
+  => Back to calm music fragment
+  => Back to journal fragment
+  => Back to seek help fragment
+
+- **Profile Screen**
+  => Back to main screen
 
 ## Wireframes
 
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://i.imgur.com/iC4IXc4.png" width=600>
+<img src="https://i.imgur.com/NnUYuCL.png" width=600>
 
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
