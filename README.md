@@ -126,3 +126,7 @@ MindfulMind will allow users to have track and develop their mental health. They
 <img src="https://i.imgur.com/iC4IXc4.png" width=600>
 <img src="https://i.imgur.com/NnUYuCL.png" width=600>
 
+
+
+https://user-images.githubusercontent.com/77579038/197669044-d8a92112-4b0b-4a93-b9e3-1095a4073e0a.mp4
+
