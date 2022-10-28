@@ -21,5 +21,5 @@ interface JournalDao {
     fun removeAll()
 
     @Delete
-    fun delete(food: JournalEntity)
+    fun delete(journal: JournalEntity)
 }

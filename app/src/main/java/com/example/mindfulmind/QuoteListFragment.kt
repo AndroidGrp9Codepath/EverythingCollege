@@ -19,7 +19,7 @@ class QuoteListFragment : Fragment() {
     // Add these properties
     private val quotes = mutableListOf<DisplayJournals>()
     private lateinit var quotesRecyclerView: RecyclerView
-    private lateinit var quoteAdapter: QuoteAdapter
+    private lateinit var quoteAdapter: JournalAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +38,7 @@ class QuoteListFragment : Fragment() {
         quotesRecyclerView = view.findViewById(R.id.quotes_recycler_view)
         quotesRecyclerView.layoutManager = layoutManager
         quotesRecyclerView.setHasFixedSize(true)
-        quoteAdapter = QuoteAdapter(view.context, quotes)
+        quoteAdapter = JournalAdapter(view.context, quotes)
         quotesRecyclerView.adapter = quoteAdapter
 
         // Update the return statement to return the inflated view from above

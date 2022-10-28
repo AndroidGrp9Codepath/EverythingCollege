@@ -1,30 +1,26 @@
 package com.example.mindfulmind
 
-import android.content.Intent
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.math.RoundingMode
+
 
 
 class JournalFragment : Fragment() {
 
-    private val quotes = mutableListOf<DisplayJournals>()
+    private val journals = mutableListOf<DisplayJournals>()
     private lateinit var journalRecyclerView: RecyclerView
-    private lateinit var quoteAdapter: QuoteAdapter
+    private lateinit var journalAdapter: JournalAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
 
     }
@@ -34,10 +30,16 @@ class JournalFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.journal_item, container, false)
-        val journalRecyclerView = view.findViewById<View>(R.id.journal_recycler_view) as RecyclerView
-        val context = view.context
-        journalRecyclerView.layoutManager = GridLayoutManager(context, 2)
+        val view = inflater.inflate(R.layout.fragment_journal, container, false)
+
+        val layoutManager = GridLayoutManager(context,2)
+        journalRecyclerView = view.findViewById(R.id.journal_recycler_view)
+        journalRecyclerView.layoutManager = layoutManager
+        journalRecyclerView.setHasFixedSize(true)
+        journalAdapter = JournalAdapter(view.context,journals)
+        journalRecyclerView.adapter = journalAdapter
+//        val context = view.context
+//        journalRecyclerView.layoutManager = GridLayoutManager(context, 2)
 
 
         return view
@@ -48,11 +50,11 @@ class JournalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Call the new method within onViewCreated
-        fetchJournals(view)
+        fetchJournals()
 
     }
 
-    private fun fetchJournals(view: View) {
+    private fun fetchJournals() {
         lifecycleScope.launch {
 
 
@@ -64,8 +66,8 @@ class JournalFragment : Fragment() {
                     )
                 }.also { mappedList ->
 
-                    quotes.addAll(mappedList)
-                    quoteAdapter.notifyDataSetChanged()
+                    journals.addAll(mappedList)
+                    journalAdapter.notifyDataSetChanged()
                 }
             }
 
