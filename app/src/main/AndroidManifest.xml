@@ -13,9 +13,25 @@
         android:theme="@style/Theme.MindfulMind"
         tools:targetApi="31">
         <activity
-            android:name=".AboutAppActivity"
+            android:name=".addJournalActivity"
             android:parentActivityName=".MainActivity"
             android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AboutAppActivity"
+            android:exported="true"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

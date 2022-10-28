@@ -12,5 +12,10 @@
         android:id="@+id/top_nav_logout_btn"
         android:title="Logout"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/top_nav_Profile"
+        android:icon="@drawable/profileactivity"
+        app:showAsAction="always"
+        android:title= "profile" />
 
 </menu>

@@ -5,55 +5,73 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [QuoteListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+private const val API_KEY = BuildConfig.API_KEY
+private const val ARTICLE_SEARCH_URL =
+    "https://healthruwords.p.rapidapi.com/v1/quotes/?t=Wisdom&maxR=1&size=medium&id=731"
+private const val TAG = "QuotesListFragment"
 class QuoteListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    // Add these properties
+    private val quotes = mutableListOf<DisplayJournals>()
+    private lateinit var quotesRecyclerView: RecyclerView
+    private lateinit var quoteAdapter: QuoteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quote_list, container, false)
+        // Change this statement to store the view in a variable instead of a return statement
+        val view = inflater.inflate(R.layout.fragment_quote_list, container, false)
+
+        // Add these configurations for the recyclerView and to configure the adapter
+        val layoutManager = LinearLayoutManager(context)
+        quotesRecyclerView = view.findViewById(R.id.quotes_recycler_view)
+        quotesRecyclerView.layoutManager = layoutManager
+        quotesRecyclerView.setHasFixedSize(true)
+        quoteAdapter = QuoteAdapter(view.context, quotes)
+        quotesRecyclerView.adapter = quoteAdapter
+
+        // Update the return statement to return the inflated view from above
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        fetchFoods()
+    }
+    private fun fetchFoods() {
+        lifecycleScope.launch {
+
+
+            (activity?.application as JournalApplication).db.journalDao().getAll().collect{ databaseList ->
+                databaseList.map {entity ->
+                    DisplayJournals(
+
+                        entity.journalEntry,
+                    )
+                }.also { mappedList ->
+//                    foods.clear()
+                    quotes.addAll(mappedList)
+                    quoteAdapter.notifyDataSetChanged()
+                }
+            }
+
+        }
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment QuoteListFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            QuoteListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        fun newInstance(): QuoteListFragment {
+            return QuoteListFragment()
+        }
     }
 }

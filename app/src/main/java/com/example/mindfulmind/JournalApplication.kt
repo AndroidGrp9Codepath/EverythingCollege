@@ -1,4 +1,9 @@
 package com.example.mindfulmind
 
-class JournalApplication {
+import android.app.Application
+
+class JournalApplication: Application() {
+    val db by lazy {
+        appDataBase.getInstance(this)
+    }
 }

@@ -1,7 +1,8 @@
 package com.example.mindfulmind
 
-class DisplayQuotes(
-    val username: String?,
-    val quotes: String?,
+class DisplayJournals(
+
+//    val quotes: String?,
+    val journalEntry: String?,
 
 ) : java.io.Serializable
