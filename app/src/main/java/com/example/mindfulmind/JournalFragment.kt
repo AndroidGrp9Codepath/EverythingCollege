@@ -18,7 +18,9 @@ import java.math.RoundingMode
 
 class JournalFragment : Fragment() {
 
-
+    private val quotes = mutableListOf<DisplayJournals>()
+    private lateinit var journalRecyclerView: RecyclerView
+    private lateinit var quoteAdapter: QuoteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +35,9 @@ class JournalFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.journal_item, container, false)
-        val recyclerView = view.findViewById<View>(R.id.journal_recycler_view) as RecyclerView
+        val journalRecyclerView = view.findViewById<View>(R.id.journal_recycler_view) as RecyclerView
         val context = view.context
-        recyclerView.layoutManager = GridLayoutManager(context, 2)
+        journalRecyclerView.layoutManager = GridLayoutManager(context, 2)
 
 
         return view
@@ -46,13 +48,28 @@ class JournalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Call the new method within onViewCreated
-        fetchfoods(view)
+        fetchJournals(view)
 
     }
 
-    private fun fetchfoods(view: View) {
+    private fun fetchJournals(view: View) {
+        lifecycleScope.launch {
 
 
+            (activity?.application as JournalApplication).db.journalDao().getAll().collect{ databaseList ->
+                databaseList.map {entity ->
+                    DisplayJournals(
+
+                        entity.journalEntry,
+                    )
+                }.also { mappedList ->
+
+                    quotes.addAll(mappedList)
+                    quoteAdapter.notifyDataSetChanged()
+                }
+            }
+
+        }
     }
 
 

@@ -47,9 +47,9 @@ class QuoteListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fetchFoods()
+        fetchJournals()
     }
-    private fun fetchFoods() {
+    private fun fetchJournals() {
         lifecycleScope.launch {
 
 
