@@ -50,11 +50,11 @@ class JournalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Call the new method within onViewCreated
-        fetchJournals()
+        fetchJournals(view)
 
     }
 
-    private fun fetchJournals() {
+    private fun fetchJournals(view: View) {
         lifecycleScope.launch {
 
 

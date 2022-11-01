@@ -4,15 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bb"
     tools:context=".AboutAppActivity">
 
     <TextView
+        android:id="@+id/boutTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="this should have info about our app"
+        android:textColor="@color/white"
+        android:background="@drawable/input_bg"
+        android:text="MindfulMind will allow users to have track and develop their mental health. They will be able to view mental health resources, choose among relaxing spotify playlist, read quotes, and input daily journal entries."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:padding="20dp"
+        app:layout_constraintVertical_bias="0.17000002" />
+
+    <TextView
+        android:id="@+id/moreinfoTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="For more information please follow Github link"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boutTV"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:background="@drawable/input_bg"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:padding="20dp" />
+    <TextView
+        android:id="@+id/linkTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:linksClickable="true"
+        android:background="@drawable/btn_bg"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black"
+        android:text="Check out Github:)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moreinfoTV"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:padding="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
