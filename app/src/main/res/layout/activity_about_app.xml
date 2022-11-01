@@ -11,17 +11,17 @@
         android:id="@+id/boutTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
         android:background="@drawable/input_bg"
+        android:padding="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:text="MindfulMind will allow users to have track and develop their mental health. They will be able to view mental health resources, choose among relaxing spotify playlist, read quotes, and input daily journal entries."
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:padding="20dp"
         app:layout_constraintVertical_bias="0.17000002" />
 
     <TextView
