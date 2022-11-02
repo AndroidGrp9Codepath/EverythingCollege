@@ -35,8 +35,8 @@ RecyclerView.Adapter<JournalAdapter.ViewHolder>() {
             val quote = journals[absoluteAdapterPosition]
         }
 
-        fun bind(quote: DisplayJournals) {
-            journalentryTextview.text = quote.journalEntry
+        fun bind(journal: DisplayJournals) {
+            journalentryTextview.text = journal.journalEntry
 
         }
 

@@ -32,9 +32,6 @@ class MainActivity : AppCompatActivity() {
         val bottomNavegation : BottomNavigationView = findViewById(R.id.bottom_navigation)
 
 
-
-
-
         // handle navigation selection
         bottomNavegation.setOnClickListener { item ->
             lateinit var fragment: Fragment
