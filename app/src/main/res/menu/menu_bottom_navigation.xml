@@ -2,20 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_quotes"
-        android:icon="@drawable/ic_baseline_format_quote_24"
+        android:icon="@drawable/quote_left"
         android:title="Quotes"/>
 
     <item
         android:id="@+id/nav_calm_music"
-        android:icon="@drawable/ic_baseline_library_music_24"
+        android:icon="@drawable/youtube_music"
         android:title="Calm Music"/>
     <item
         android:id="@+id/nav_Journal"
-        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:icon="@drawable/edit_property"
         android:title="Journal"/>
 
     <item
         android:id="@+id/nav_Seek_help"
-        android:icon="@drawable/ic_baseline_live_help_24"
+        android:icon="@drawable/connectivity_and_help"
         android:title="Seek Help"/>
 </menu>

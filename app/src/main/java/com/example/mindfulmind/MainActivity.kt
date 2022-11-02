@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.mindfulmind.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val seekHelpFragment: Fragment = SeekHelpFragment()
 
         val bottomNavegation : BottomNavigationView = findViewById(R.id.bottom_navigation)
-
+        bottomNavegation.itemIconTintList = null
 
 
 
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavegation.selectedItemId = R.id.nav_quotes
 
-        val addJournalBtn = findViewById<Button>(R.id.addJournalBtn)
+        val addJournalBtn = findViewById<FloatingActionButton>(R.id.addJournalBtn)
 
         addJournalBtn.setOnClickListener {
             val intent = Intent(this,addJournalActivity::class.java)
