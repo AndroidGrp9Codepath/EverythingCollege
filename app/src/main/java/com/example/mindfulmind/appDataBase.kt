@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [JournalEntity::class], version = 1)
+@Database(entities = [JournalEntity::class], version = 2)
 abstract class appDataBase: RoomDatabase() {
     abstract fun journalDao(): JournalDao
 

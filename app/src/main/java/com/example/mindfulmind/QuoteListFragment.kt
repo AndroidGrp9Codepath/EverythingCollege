@@ -47,26 +47,26 @@ class QuoteListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fetchJournals()
+//        fetchJournals()
     }
     private fun fetchJournals() {
-        lifecycleScope.launch {
-
-
-            (activity?.application as JournalApplication).db.journalDao().getAll().collect{ databaseList ->
-                databaseList.map {entity ->
-                    DisplayJournals(
-
-                        entity.journalEntry,
-                    )
-                }.also { mappedList ->
-//                    foods.clear()
-                    quotes.addAll(mappedList)
-                    quoteAdapter.notifyDataSetChanged()
-                }
-            }
-
-        }
+//        lifecycleScope.launch {
+//
+//
+//            (activity?.application as JournalApplication).db.journalDao().getAll().collect{ databaseList ->
+//                databaseList.map {entity ->
+//                    DisplayJournals(
+//
+//                        entity.journalEntry,
+//                    )
+//                }.also { mappedList ->
+////                    foods.clear()
+//                    quotes.addAll(mappedList)
+//                    quoteAdapter.notifyDataSetChanged()
+//                }
+//            }
+//
+//        }
     }
 
     companion object {

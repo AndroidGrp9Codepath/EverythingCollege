@@ -19,10 +19,11 @@ class addJournalActivity : AppCompatActivity() {
 
         saveJournalButton.setOnClickListener {
             val journalEntryEditText = findViewById<EditText>(R.id.journalEntryET).text.toString()
+            val journalTitleEditText = findViewById<EditText>(R.id.tittleEditText).text.toString()
 
             lifecycleScope.launch(IO) {
                 (application as JournalApplication).db.journalDao().insert(
-                    JournalEntity(journalEntryEditText)
+                    JournalEntity(journalEntryEditText,journalTitleEditText)
                 )
             }
             val intent = Intent(this,MainActivity::class.java)

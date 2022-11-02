@@ -63,6 +63,7 @@ class JournalFragment : Fragment() {
                     DisplayJournals(
 
                         entity.journalEntry,
+                        entity.journalTitle
                     )
                 }.also { mappedList ->
 

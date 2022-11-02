@@ -8,6 +8,8 @@ import androidx.room.PrimaryKey
 data class JournalEntity (
 
     @ColumnInfo(name = "journalEntry") val journalEntry: String?,
+    @ColumnInfo(name = "journalTitle") val journalTitle: String?,
+
 //    @ColumnInfo(name = "username") val username: String?,
     @PrimaryKey(autoGenerate = true) val id: Long= 0,
 
