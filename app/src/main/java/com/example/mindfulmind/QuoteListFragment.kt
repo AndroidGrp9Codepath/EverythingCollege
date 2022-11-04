@@ -1,6 +1,7 @@
 package com.example.mindfulmind
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import kotlinx.coroutines.launch
 import okhttp3.Headers
+import org.json.JSONException
 import org.json.JSONObject
 
 private const val API_KEY = BuildConfig.API_KEY
@@ -22,9 +24,9 @@ private const val TAG = "QuotesListFragment"
 class QuoteListFragment : Fragment() {
 
     // Add these properties
-    private val quotes = mutableListOf<DisplayJournals>()
+    private val quotes = mutableListOf<Quotes>()
     private lateinit var quotesRecyclerView: RecyclerView
-    private lateinit var quoteAdapter: JournalAdapter
+    private lateinit var quoteAdapter: QuoteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,16 +60,34 @@ class QuoteListFragment : Fragment() {
 //        fetchJournals()
     }
     private fun fetchJournals() {
-//        val client =AsyncHttpClient()
-//        client.get(ARTICLE_SEARCH_URL, object : JsonHttpResponseHandler(){
-//            override fun onSucess(
-//                statusCode: Int,
-//                headers: Headers?,
-//                json: JsonHttpResponseHandler.JSON
-//            ) {
-//                val resultJson: JSONObject = json.jsonObject.get()
-//            }
-//        })
+        val client = AsyncHttpClient()
+        client.get(ARTICLE_SEARCH_URL, object : JsonHttpResponseHandler() {
+            override fun onFailure(
+                statusCode: Int,
+                headers: Headers?,
+                response: String?,
+                throwable: Throwable?
+            ) {
+                Log.e(TAG, "Failed to fetch quotes: $statusCode")
+            }
+
+            override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
+                Log.i(TAG, "Successfully fetched quotes: $json")
+                try {
+                    val parsedJson = createJson().decodeFromString(
+                        SearchResponse.serializer(),
+                        json.jsonObject.toString()
+                    )
+                    parsedJson.response?.result?.let { list ->
+                        quotes.addAll(list)
+                        quoteAdapter.notifyDataSetChanged()
+                    }
+                } catch (e: JSONException) {
+                    Log.e(TAG, "Exception: $e")
+                }
+            }
+
+        })
 //        lifecycleScope.launch {
 //
 //
