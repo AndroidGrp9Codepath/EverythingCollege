@@ -11,7 +11,14 @@ import com.example.mindfulmind.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.serialization.json.Json
 
+
+fun createJson() = Json {
+    isLenient = true
+    ignoreUnknownKeys = true
+    useAlternativeNames = false
+}
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

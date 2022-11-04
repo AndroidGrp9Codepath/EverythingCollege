@@ -9,7 +9,10 @@ import kotlinx.serialization.Serializable
 
  class Quotes {
     @SerializedName("id")
-    var rank : String? = null
+    var ids : String? = null
+
+   @SerializedName("text")
+   var quoteMesseges : String? = null
 
     @JvmField
     @SerializedName("title")
