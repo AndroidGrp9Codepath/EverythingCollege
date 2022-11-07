@@ -1,7 +1,6 @@
 package com.example.mindfulmind
 
 import android.support.annotation.Keep
-import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -50,5 +49,5 @@ data class Quotes(
     @SerialName("author")
     val author: String?,
     @SerialName("content")
-    val quote: String?,
+    val content: String?,
 ) : java.io.Serializable
