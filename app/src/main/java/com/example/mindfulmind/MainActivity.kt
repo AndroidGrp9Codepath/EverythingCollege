@@ -51,7 +51,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_Journal -> fragment = journalFragment
                 R.id.nav_Seek_help -> fragment = seekHelpFragment
             }
-            fragmentManager.beginTransaction().replace(R.id.rlcontainer, fragment).commit() // rlcontainer is the id that i set for main layout and then changes with fragments
+            //commented the fragment use in place and use the fuction created to handle the fragments
+            replaceFragment(fragment)
+//            fragmentManager.beginTransaction().replace(R.id.rlcontainer, fragment).commit() // rlcontainer is the id that i set for main layout and then changes with fragments
             true
         }
 
@@ -105,12 +107,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
     // this we don't need it
-//    private fun replaceFragment(AllFragment: Fragment) {
-//        val fragmentManager = supportFragmentManager
-//        val fragmentTransaction = fragmentManager.beginTransaction()
-//        fragmentTransaction.replace(R.id.quote_frame_layout, AllFragment)
-//        fragmentTransaction.commit()
-//    }
+    private fun replaceFragment(AllFragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.rlcontainer, AllFragment)
+        fragmentTransaction.commit()
+    }
 
 
 }
