@@ -14,6 +14,7 @@ class addJournalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_journal)
 
+
         val saveJournalButton =findViewById<Button>(R.id.saveJournalBtn)
 
         saveJournalButton.setOnClickListener {
