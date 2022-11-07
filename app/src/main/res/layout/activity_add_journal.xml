@@ -52,13 +52,15 @@
         <EditText
             android:id="@+id/journalEntryET"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:layout_margin="5dp"
             android:background="@drawable/shape_background"
             android:hint="Add text........"
             android:inputType="textUri"
             android:padding="15dp"
-            android:textSize="18sp" />
+            android:textAlignment="viewStart"
+            android:textSize="18sp"
+            android:gravity="top"/>
 
         <Button
             android:id="@+id/saveJournalBtn"
@@ -69,31 +71,6 @@
             android:text="Save Journal" />
 
     </LinearLayout>
-    <!--    <EditText-->
-    <!--        android:id="@+id/journalEntryET"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:hint="Enter title and a journal entry"-->
-    <!--        android:paddingLeft="20dp"-->
-    <!--        android:paddingRight="10dp"-->
-    <!--        android:paddingTop="10dp"-->
-    <!--        android:paddingBottom="10dp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!--    <Button-->
-    <!--        android:id="@+id/saveJournalBtn"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Save Journal"-->
-    <!--        android:paddingLeft="20dp"-->
-    <!--        android:paddingRight="10dp"-->
-    <!--        android:paddingTop="10dp"-->
-    <!--        android:paddingBottom="10dp"-->
-    <!--        app:layout_constraintEnd_toEndOf="@+id/journalEntryET"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/journalEntryET" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

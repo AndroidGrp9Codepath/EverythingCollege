@@ -13,7 +13,6 @@ class addJournalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_journal)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val saveJournalButton =findViewById<Button>(R.id.saveJournalBtn)
 
@@ -26,8 +25,7 @@ class addJournalActivity : AppCompatActivity() {
                     JournalEntity(journalEntryEditText,journalTitleEditText)
                 )
             }
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 }

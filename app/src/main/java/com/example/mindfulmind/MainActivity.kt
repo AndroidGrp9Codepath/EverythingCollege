@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.mindfulmind.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -26,10 +27,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(R.layout.activity_main)
+
         firebaseAuth = FirebaseAuth.getInstance()
+
+        val fragmentManager: FragmentManager = supportFragmentManager
 
         //define fragments
         val quotesFragment: Fragment = QuoteListFragment()
@@ -38,22 +40,24 @@ class MainActivity : AppCompatActivity() {
         val seekHelpFragment: Fragment = SeekHelpFragment()
 
         val bottomNavegation : BottomNavigationView = findViewById(R.id.bottom_navigation)
-        bottomNavegation.itemIconTintList = null
+        bottomNavegation.itemIconTintList = null //insert images as it is in bottom
 
         // handle navigation selection
-        bottomNavegation.setOnClickListener { item ->
+        bottomNavegation.setOnItemSelectedListener { item ->
             lateinit var fragment: Fragment
-            when (item.id) {
+            when (item.itemId) {
                 R.id.nav_quotes -> fragment = quotesFragment
                 R.id.nav_calm_music -> fragment = calmMusicFragment
                 R.id.nav_Journal -> fragment = journalFragment
                 R.id.nav_Seek_help -> fragment = seekHelpFragment
             }
-            replaceFragment(fragment)
+            fragmentManager.beginTransaction().replace(R.id.rlcontainer, fragment).commit()
             true
         }
 
+        // Set default selection
         bottomNavegation.selectedItemId = R.id.nav_quotes
+
 
         val addJournalBtn = findViewById<FloatingActionButton>(R.id.addJournalBtn)
 
@@ -100,12 +104,12 @@ class MainActivity : AppCompatActivity() {
             super.onOptionsItemSelected(item)
         }
     }
-    private fun replaceFragment(AllFragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.quote_frame_layout, AllFragment)
-        fragmentTransaction.commit()
-    }
+//    private fun replaceFragment(AllFragment: Fragment) {
+//        val fragmentManager = supportFragmentManager
+//        val fragmentTransaction = fragmentManager.beginTransaction()
+//        fragmentTransaction.replace(R.id.quote_frame_layout, AllFragment)
+//        fragmentTransaction.commit()
+//    }
 
 
 }

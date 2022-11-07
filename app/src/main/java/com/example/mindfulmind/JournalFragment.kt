@@ -66,7 +66,7 @@ class JournalFragment : Fragment() {
                         entity.journalTitle
                     )
                 }.also { mappedList ->
-
+                    journals.clear()
                     journals.addAll(mappedList)
                     journalAdapter.notifyDataSetChanged()
                 }
