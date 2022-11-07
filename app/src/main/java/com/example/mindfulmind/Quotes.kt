@@ -7,7 +7,6 @@ import kotlinx.serialization.Serializable
 
 //@Keep
 //@Serializable
-//
 // class Quotes {
 //    @SerializedName("id")
 //    var ids : String? = null
@@ -19,7 +18,7 @@ import kotlinx.serialization.Serializable
 //    @SerializedName("title")
 //    var title: String? = null
 //
-//    @JvmField
+//   @JvmField
 //    @SerializedName("author")
 //    var author: String? = null
 //
@@ -32,24 +31,24 @@ import kotlinx.serialization.Serializable
 //    @SerializedName("cat")
 //    var cat: String? = null
 //}
-@Keep
-@Serializable
-data class SearchResponse(
-    @SerialName("results")
-    val response: BaseResponse?
-)
-@Keep
-@Serializable
-data class BaseResponse(
-    @SerialName("result")
-    val result: List<Quotes>?
-)
+//@Keep
+//@Serializable
+//data class SearchResponse(
+//    @SerialName("results")
+//    val response: BaseResponse?
+//)
+//@Keep
+//@Serializable
+//data class BaseResponse(
+//    @SerialName("result")
+//    val result: List<Quotes>?
+//)
 
 @Keep
 @Serializable
 data class Quotes(
-    @SerialName("quote")
-    val quote: String?,
     @SerialName("author")
     val author: String?,
+    @SerialName("content")
+    val quote: String?,
 ) : java.io.Serializable

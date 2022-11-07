@@ -10,11 +10,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class QuoteAdapter(private val context: Context, private val quotes: List<Quotes>) :
-RecyclerView.Adapter<QuoteAdapter.ViewHolder>(){
+class QuoteAdapter(private val quotes: List<Quotes>) :
+    RecyclerView.Adapter<QuoteAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.quotes_items, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.quotes_items, parent, false)
         return ViewHolder(view)
     }
 
@@ -28,8 +28,8 @@ RecyclerView.Adapter<QuoteAdapter.ViewHolder>(){
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
 
-        private val profileImageView = itemView.findViewById<ImageView>(R.id.profilePicImageView)
-        private val usernameextView = itemView.findViewById<TextView>(R.id.usernameTextView)
+        //private val profileImageView = itemView.findViewById<ImageView>(R.id.profilePicImageView)
+        //private val usernameextView = itemView.findViewById<TextView>(R.id.usernameTextView)
         private val quoteTextView = itemView.findViewById<TextView>(R.id.quoteTextview)
         private val authorTextView = itemView.findViewById<TextView>(R.id.authorTextview)
 
