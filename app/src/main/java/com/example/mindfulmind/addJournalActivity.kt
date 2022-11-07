@@ -24,6 +24,7 @@ class addJournalActivity : AppCompatActivity() {
             lifecycleScope.launch(IO) {
                 (application as JournalApplication).db.journalDao().insert(
                     JournalEntity(journalEntryEditText,journalTitleEditText)
+
                 )
             }
             finish()
