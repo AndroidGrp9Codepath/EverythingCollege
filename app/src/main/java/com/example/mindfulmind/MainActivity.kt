@@ -22,7 +22,7 @@ fun createJson() = Json {
 }
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    //private lateinit var binding: ActivityMainBinding No need of binding
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_Journal -> fragment = journalFragment
                 R.id.nav_Seek_help -> fragment = seekHelpFragment
             }
-            fragmentManager.beginTransaction().replace(R.id.rlcontainer, fragment).commit()
+            fragmentManager.beginTransaction().replace(R.id.rlcontainer, fragment).commit() // rlcontainer is the id that i set for main layout and then changes with fragments
             true
         }
 
@@ -104,6 +104,7 @@ class MainActivity : AppCompatActivity() {
             super.onOptionsItemSelected(item)
         }
     }
+    // this we don't need it
 //    private fun replaceFragment(AllFragment: Fragment) {
 //        val fragmentManager = supportFragmentManager
 //        val fragmentTransaction = fragmentManager.beginTransaction()

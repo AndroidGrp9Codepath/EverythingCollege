@@ -28,6 +28,8 @@ RecyclerView.Adapter<JournalAdapter.ViewHolder>() {
         private val journalTitlet = itemView.findViewById<TextView>(R.id.journaltitleTextV)
 
 
+
+
         init {
             itemView.setOnClickListener(this)
         }
@@ -39,6 +41,7 @@ RecyclerView.Adapter<JournalAdapter.ViewHolder>() {
         fun bind(journal: DisplayJournals) {
             journalentryTextview.text = journal.journalEntry
             journalTitlet.text = journal.journalTitle
+
 
         }
 
