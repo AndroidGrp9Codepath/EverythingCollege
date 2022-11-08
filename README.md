@@ -40,9 +40,9 @@ MindfulMind will allow users to have track and develop their mental health. They
 
 - [x] **Use four Fragments**
 
-- [ ] **Make requests to the spotify API, quotes API, and mental health resources API**
 
-- [ ] **User can see playlists, quotes, notes, and mental health resources on a recyclerview**
+
+- [x] **User can see quotes, notes,add notes, an about page and profile activity**
 
 - [x] **User can input new notes using textviews**
 
@@ -53,7 +53,8 @@ MindfulMind will allow users to have track and develop their mental health. They
 - [x] **Users can stay logged in after reopening app**
 
 **Stretch Features**
-
+- [ ] **User can see playlists, and mental health resources on a recyclerview**
+- [ ] **Make requests to the spotify API, quotes API, and mental health resources API**
 - [ ] **Users can login using facebook or google**
 - [ ] **Users can save their favorite songs and quotes to a database**
 - [ ] **Users can customize the recyclerview layout**
@@ -132,3 +133,7 @@ https://user-images.githubusercontent.com/77579038/197669044-d8a92112-4b0b-4a93-
 ## Video at current stage
 
 ![mindwalkthru.git](https://github.com/AndroidGrp9Codepath/MindfulMind/blob/main/mindfulmindWalkthru.gif)
+
+## Presentation Link
+
+![presentationlink]()
