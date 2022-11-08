@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_Journal"
+        android:icon="@drawable/edit_property"
+        android:title="Journal"/>
     <item
         android:id="@+id/nav_quotes"
         android:icon="@drawable/quote_left"
@@ -9,10 +14,7 @@
         android:id="@+id/nav_calm_music"
         android:icon="@drawable/youtube_music"
         android:title="Calm Music"/>
-    <item
-        android:id="@+id/nav_Journal"
-        android:icon="@drawable/edit_property"
-        android:title="Journal"/>
+
 
     <item
         android:id="@+id/nav_Seek_help"

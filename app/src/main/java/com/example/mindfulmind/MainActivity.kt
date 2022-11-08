@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Set default selection
-        bottomNavegation.selectedItemId = R.id.nav_quotes
+        bottomNavegation.selectedItemId = R.id.nav_Journal
 
 
         val addJournalBtn = findViewById<FloatingActionButton>(R.id.addJournalBtn)
