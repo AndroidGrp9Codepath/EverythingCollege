@@ -1,11 +1,12 @@
 plugins {
+    id 'kotlin-kapt'
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'org.jetbrains.kotlin.plugin.serialization'
-    id 'kotlin-kapt'
     id 'com.google.gms.google-services'
+
 
 }
 def apikeyPropertiesFile = rootProject.file("apikey.properties")
@@ -81,6 +82,10 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation 'androidx.fragment:fragment-ktx:1.5.0'
+    implementation 'androidx.fragment:fragment-ktx:1.5.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
 
 //    implementation 'androidx.core:core-ktx:1.7.0'
 //    implementation 'androidx.appcompat:appcompat:1.5.1'
