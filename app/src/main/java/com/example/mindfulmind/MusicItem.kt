@@ -5,7 +5,7 @@ import kotlinx.serialization.SerialName
 
 data class MusicItem (
 
-    @SerialName("name")
+    @SerializedName("name")
     val artistsName: String? = null
 
 ): java.io.Serializable
