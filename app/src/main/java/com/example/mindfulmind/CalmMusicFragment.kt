@@ -6,10 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestHeaders
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,6 +24,7 @@ import java.util.*
 
 
 class CalmMusicFragment : Fragment() {
+    private lateinit var CalmMusicRecyclerView: RecyclerView
     // Trailing slash is needed
     val baseURL = "https://accounts.spotify.com/"
     var retrofit: Retrofit = Retrofit.Builder()
@@ -40,8 +46,6 @@ class CalmMusicFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getToken()
-
     }
 
     override fun onCreateView(
@@ -50,6 +54,10 @@ class CalmMusicFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_calm_music, container, false)
+
+        CalmMusicRecyclerView = view.findViewById(R.id.songsRV)
+        CalmMusicRecyclerView.layoutManager = GridLayoutManager(context,1)
+        getToken(CalmMusicRecyclerView)
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,15 +70,14 @@ class CalmMusicFragment : Fragment() {
             return CalmMusicFragment()
         }
     }
-    private fun getToken(){
+    private fun getToken(recyclerView: RecyclerView){
         listCall.clone().enqueue(object : Callback<spotifyToken> {
 
             override fun onResponse(call: Call<spotifyToken>?, response: Response<spotifyToken>?) {
                 if (response?.body() != null) {
                     var mAccessToken = response.body()!!.access_token
                     Log.i("Response!", mAccessToken)
-                    apicall(mAccessToken)
-
+                    apicall(mAccessToken,CalmMusicRecyclerView)
                 }
                 if(response?.body() == null){
                     Log.i("Response!", "null response body")
@@ -84,7 +91,7 @@ class CalmMusicFragment : Fragment() {
         })
 
     }
-    fun apicall(mAccessToken: String) {
+    fun apicall(mAccessToken: String,recyclerView: RecyclerView) {
         val client = AsyncHttpClient()
         var params: RequestParams = RequestParams();
         var requestHeaders: RequestHeaders =  RequestHeaders();
@@ -95,8 +102,16 @@ class CalmMusicFragment : Fragment() {
             requestHeaders,
             params,
             object : JsonHttpResponseHandler() {
-                override fun onSuccess(statusCode: Int, headers: okhttp3.Headers?, json: JSON?) {
-                    Log.d("DEBUG", json?.jsonObject.toString())
+                override fun onSuccess(statusCode: Int, headers: okhttp3.Headers?, json: JSON) {
+                    Log.d("DEBUG", json.jsonObject.toString())
+                    val resultsJSON = json.jsonObject.get("items").toString()
+                    //val artistsRawJSON : String = resultsJSON[0].toString()
+                    val gson = Gson()
+                    val arrayArtistType = object : TypeToken<List<MusicItem>>() {}.type
+                    val models : List<MusicItem> = gson.fromJson(resultsJSON, arrayArtistType)
+                  CalmMusicRecyclerView.adapter = CalmMusicAdapter(models, this@CalmMusicFragment)
+
+
                 }
 
                 override fun onFailure(
