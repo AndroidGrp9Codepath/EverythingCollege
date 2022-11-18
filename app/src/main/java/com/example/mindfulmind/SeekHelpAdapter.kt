@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -18,6 +19,7 @@ class SeekHelpAdapter(val therapists: List<Therapist>, private val context: Seek
         val businessImage = itemView.findViewById<ImageView>(R.id.poster)
         val businessNameTextView = itemView.findViewById<TextView>(R.id.businessName)
         val addressTextView = itemView.findViewById<TextView>(R.id.address)
+        val rating = itemView.findViewById<RatingBar>(R.id.ratingBar)
         val phoneNumberTextView = itemView.findViewById<TextView>(R.id.phoneNumber)
         val distanceTextView = itemView.findViewById<TextView>(R.id.distance)
 
@@ -37,8 +39,11 @@ class SeekHelpAdapter(val therapists: List<Therapist>, private val context: Seek
         // Get the data model based on position
         val contact: Therapist = therapists[position]
         // Set item views based on your views and data model
-        val textView = holder.businessNameTextView
-        textView.text = contact.name
+         holder.businessNameTextView.text = contact.name
+        holder.addressTextView.text = contact.location.toString()
+        holder.phoneNumberTextView.text = contact.phoneNumber
+        holder.distanceTextView.text = contact.getDistance()
+        holder.rating.rating = contact.rating
     }
 
     override fun getItemCount(): Int {

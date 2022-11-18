@@ -7,7 +7,7 @@ data class HelpItemDataModel(
 )
 data class Therapist(
     @SerializedName("name") val name: String,
-    @SerializedName("rating") val rating: Int,
+    @SerializedName("rating") val rating: Float,
     @SerializedName("phone") val phoneNumber: String,
     @SerializedName("distance") val distance: Double,
     @SerializedName("url") val websiteLink: String,
