@@ -1,10 +1,13 @@
 package com.example.mindfulmind
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class CalmMusicAdapter(private val songs: List<MusicItem>, private val context: CalmMusicFragment) : RecyclerView.Adapter<CalmMusicAdapter.ViewHolder>() {
@@ -16,7 +19,6 @@ class CalmMusicAdapter(private val songs: List<MusicItem>, private val context: 
         // for any view that will be set as you render a row
         val artists = itemView.findViewById<TextView>(R.id.artists)
         val songName = itemView.findViewById<TextView>(R.id.songName)
-        val previewTitle = itemView.findViewById<TextView>(R.id.previewTitle)
         val play = itemView.findViewById<ImageView>(R.id.play)
     }
 
@@ -35,6 +37,14 @@ class CalmMusicAdapter(private val songs: List<MusicItem>, private val context: 
         // Set item views based on your views and data model
         val textView = viewHolder.songName
         textView.text = song.songName
+
+        viewHolder.play.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(song.preview_url))
+            startActivity(it.context, browserIntent, null)
+        }
+
+
+
     }
 
     override fun getItemCount(): Int {
