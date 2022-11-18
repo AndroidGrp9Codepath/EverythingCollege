@@ -33,8 +33,8 @@ class CalmMusicAdapter(private val songs: List<MusicItem>, private val context: 
         // Get the data model based on position
         val song: MusicItem = songs[position]
         // Set item views based on your views and data model
-        val textView = viewHolder.artists
-        textView.text = song.artistsName
+        val textView = viewHolder.songName
+        textView.text = song.songName
     }
 
     override fun getItemCount(): Int {
