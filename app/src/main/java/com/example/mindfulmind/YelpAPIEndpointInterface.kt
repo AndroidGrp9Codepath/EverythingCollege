@@ -11,6 +11,6 @@ interface YelpAPIEndpointInterface {
     fun findTherapists(
         @Header("Authorization") authorization: String,
         @Query("term") keyWord: String,
-        @Query("location") location: String): Call<Any>
+        @Query("location") location: String): Call<HelpItemDataModel>
 
 }
