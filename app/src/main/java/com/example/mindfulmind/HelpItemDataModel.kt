@@ -16,10 +16,10 @@ data class Therapist(
     ){
     fun getDistance(): String{
         val milesPerMeter = 0.000621371
-        val distanceInMiles = "%2f".format(distance*milesPerMeter)
-        return "$distanceInMiles mi"
+        val distanceInMiles = (distance*milesPerMeter).toInt()
+        return "${distanceInMiles} mi"
     }
 }
 data class Location(
-    @SerializedName("address") val address: String
+    @SerializedName("address1") val address: String
 )

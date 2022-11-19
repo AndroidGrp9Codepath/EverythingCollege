@@ -1,13 +1,17 @@
 package com.example.mindfulmind
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class SeekHelpAdapter(val therapists: List<Therapist>, private val context: SeekHelpFragment):
     RecyclerView.Adapter<SeekHelpAdapter.ViewHolder>() {
@@ -40,10 +44,15 @@ class SeekHelpAdapter(val therapists: List<Therapist>, private val context: Seek
         val contact: Therapist = therapists[position]
         // Set item views based on your views and data model
          holder.businessNameTextView.text = contact.name
-        holder.addressTextView.text = contact.location.toString()
+        holder.addressTextView.text = contact.location.address
         holder.phoneNumberTextView.text = contact.phoneNumber
         holder.distanceTextView.text = contact.getDistance()
         holder.rating.rating = contact.rating
+        Glide.with(context).load(contact.image_url).into(holder.businessImage)
+        holder.businessNameTextView.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(contact.websiteLink))
+            ContextCompat.startActivity(it.context, browserIntent, null)
+        }
     }
 
     override fun getItemCount(): Int {
