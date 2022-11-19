@@ -1,6 +1,5 @@
 package com.example.mindfulmind
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -10,8 +9,10 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+
 
 class SeekHelpAdapter(val therapists: List<Therapist>, private val context: SeekHelpFragment):
     RecyclerView.Adapter<SeekHelpAdapter.ViewHolder>() {
@@ -50,9 +51,16 @@ class SeekHelpAdapter(val therapists: List<Therapist>, private val context: Seek
         holder.rating.rating = contact.rating
         Glide.with(context).load(contact.image_url).into(holder.businessImage)
         holder.businessNameTextView.setOnClickListener {
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(contact.websiteLink))
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("tel: ${contact.websiteLink}"))
             ContextCompat.startActivity(it.context, browserIntent, null)
         }
+        holder.phoneNumberTextView.setOnClickListener {
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:${contact.phoneNumber}")
+            ContextCompat.startActivity(it.context, intent, null)
+        }
+
+
     }
 
     override fun getItemCount(): Int {
