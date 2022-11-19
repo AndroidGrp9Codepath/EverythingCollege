@@ -51,7 +51,7 @@ class SeekHelpAdapter(val therapists: List<Therapist>, private val context: Seek
         holder.rating.rating = contact.rating
         Glide.with(context).load(contact.image_url).into(holder.businessImage)
         holder.businessNameTextView.setOnClickListener {
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("tel: ${contact.websiteLink}"))
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(contact.websiteLink))
             ContextCompat.startActivity(it.context, browserIntent, null)
         }
         holder.phoneNumberTextView.setOnClickListener {
